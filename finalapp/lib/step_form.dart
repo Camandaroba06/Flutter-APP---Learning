@@ -39,7 +39,9 @@ class _StepFormState extends State<StepForm> {
       //com isso, consegui colocar a animação com o duration e o curves
     } else if (!nextPage) {
       setState(() {
-        _pageNumb--;
+        if (_pageNumb <= 2 && _pageNumb > 0) {
+          _pageNumb--;
+        }
       });
       _StepFormController.previousPage(
           duration: const Duration(milliseconds: 500), curve: Curves.easeIn);
